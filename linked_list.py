@@ -9,7 +9,7 @@ class Node:
         self.data = data
 
     def __repr__(self) -> str:
-        return f"Nod >> {self.data}"
+        return f"Node >> {self.data}"
 
 
 class LinkedList:
@@ -36,7 +36,7 @@ class LinkedList:
 
     def remove(self, key):
         """
-        Remove node that match frst occcurence of "key"
+        Remove node that match first occcurence of "key"
         runs in O(n) linear time
         """
 
@@ -54,6 +54,25 @@ class LinkedList:
             else:
                 previous, current = current, current.next_node
         return current
+
+    def remove_at_index(self, index: int) -> None:
+        """
+        This function removes the node at given index
+        Removal Operation runs in constant time O(1)
+
+        Searching for the index runs in linear time O(n)
+        """
+        current = self.head
+        if index == 0:
+            current = current.next_node
+        else:
+            position = 0
+            prev_node = current
+            while position != index:
+                prev_node, current = current, current.next_node
+                position += 1
+
+            prev_node.next_node = current.next_node
 
     def insert(self, data, index):
         """
