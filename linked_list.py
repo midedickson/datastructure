@@ -118,3 +118,16 @@ class LinkedList:
         new_node = Node(data)
         new_node.next_node = self.head
         self.head = new_node
+
+    def reverse(self):
+        """
+        Reverses the linked list
+        """
+        current = self.head
+        previous = None
+        while current:
+            next_node = current.next_node
+            current.next_node = previous
+            previous = current
+            current = next_node
+        self.head = previous
