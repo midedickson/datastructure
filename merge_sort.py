@@ -1,7 +1,7 @@
 
 def split(arr):
     """
-    Divide unsorted list at midpoint into sunlist
+    Divide unsorted list at midpoint into sortedlist
     Returns tow sublist: left and right
     """
     midpoint = len(arr)//2

@@ -119,7 +119,7 @@ class LinkedList:
         new_node.next_node = self.head
         self.head = new_node
 
-    def reverse(self):
+    def iterative_reverse(self):
         """
         Reverses the linked list
         """
