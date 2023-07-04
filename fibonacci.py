@@ -1,19 +1,19 @@
 import time
 
 
-def recursive_fib(n):
+def fibonacci(n):
     """
     Recursive solution to fibonacci
     """
     if n <= 1:
         return n
     else:
-        return recursive_fib(n - 1) + recursive_fib(n - 2)
+        return fibonacci(n - 1) + fibonacci(n - 2)
 
 
 print("Running recursively...")
 tic = time.perf_counter()
-print(recursive_fib(40))
+print(fibonacci(40))
 toc = time.perf_counter()
 # display time taken to complete
 print(f"Build finished in {toc - tic:0.4f} seconds")
@@ -36,12 +36,12 @@ def memo_dp_fib(n):
     return lookup[n]
 
 
-print("Running with dp using memo...")
-tic = time.perf_counter()
-print(memo_dp_fib(40))
-toc = time.perf_counter()
-# display time taken to complete
-print(f"Build finished in {toc - tic:0.4f} seconds")
+# print("Running with dp using memo...")
+# tic = time.perf_counter()
+# print(memo_dp_fib(40))
+# toc = time.perf_counter()
+# # display time taken to complete
+# print(f"Build finished in {toc - tic:0.4f} seconds")
 
 
 def tabulation_db_fib(n):

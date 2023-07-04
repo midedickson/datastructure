@@ -1008,7 +1008,7 @@ small_test_data = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]
 
 
 # slow solution
-def slow_climb(cost):
+def recursive_climb(cost):
     try:
 
         def climb(i, total_cost):
@@ -1020,17 +1020,17 @@ def slow_climb(cost):
 
         return min(climb(0, 0), climb(1, 0))
     except:
-        return "Didn't last"
+        return "Failed, Didn't finish executing"
 
 
 tic = time.perf_counter()
-print(slow_climb(large_test_data))
+print(recursive_climb(large_test_data))
 toc = time.perf_counter()
 
 print(f"Finished in {toc - tic:0.4f} seconds")
 
 
-def fast_climb(cost):
+def memo_rec_climb(cost):
     # initialize memoization variable
     memo = {}
     #  store default memoization values
@@ -1050,7 +1050,21 @@ def fast_climb(cost):
 
 
 tic = time.perf_counter()
-print(fast_climb(large_test_data))
+print(memo_rec_climb(large_test_data))
+toc = time.perf_counter()
+
+print(f"Finished in {toc - tic:0.4f} seconds")
+
+
+def dp_climb(cost):
+    cost.append(0)
+    for i in range(len(cost) - 3, -1, -1):
+        cost[i] += min(cost[i + 1], cost[i + 2])
+    return min(cost[0], cost[1])
+
+
+tic = time.perf_counter()
+print(dp_climb(large_test_data))
 toc = time.perf_counter()
 
 print(f"Finished in {toc - tic:0.4f} seconds")
